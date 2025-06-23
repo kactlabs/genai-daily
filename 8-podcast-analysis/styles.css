@@ -1,0 +1,362 @@
+/* Audio Analysis Toolkit - Enhanced Styling */
+
+/* Force light theme and override Streamlit defaults */
+.stApp {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+}
+
+/* Force main content area to be light */
+.main, .main > div, .main .block-container {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+}
+
+/* Main container */
+.main .block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    max-width: 1200px !important;
+    background-color: #ffffff !important;
+}
+
+/* Override any dark theme classes */
+[data-theme="dark"], [data-theme="dark"] * {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+}
+
+/* Force all main content elements to light theme */
+.element-container, .stMarkdown, .stText, .stTitle {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+}
+
+/* Sidebar styling */
+section[data-testid="stSidebar"] {
+    background-color: #f8fafc !important;
+    border-right: 2px solid #e2e8f0 !important;
+}
+
+section[data-testid="stSidebar"] .stMarkdown h1,
+section[data-testid="stSidebar"] .stMarkdown h2,
+section[data-testid="stSidebar"] .stMarkdown h3 {
+    color: #1e293b !important;
+    font-weight: 600 !important;
+}
+
+/* Header styling */
+.stApp h1 {
+    color: #1e293b !important;
+    font-weight: 700 !important;
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+}
+
+.stApp h2, .stApp h3 {
+    color: #334155 !important;
+    font-weight: 600 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+/* Tab styling */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 0.5rem !important;
+    background-color: #f1f5f9 !important;
+    border-radius: 0.75rem !important;
+    padding: 0.5rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background-color: transparent !important;
+    border-radius: 0.5rem !important;
+    color: #64748b !important;
+    font-weight: 500 !important;
+    padding: 0.75rem 1.5rem !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    font-weight: 600 !important;
+}
+
+/* File uploader styling */
+.stFileUploader {
+    border: 2px dashed #cbd5e1 !important;
+    border-radius: 0.75rem !important;
+    padding: 2rem !important;
+    text-align: center !important;
+    background-color: #f8fafc !important;
+    transition: all 0.2s ease !important;
+}
+
+.stFileUploader:hover {
+    border-color: #3b82f6 !important;
+    background-color: #eff6ff !important;
+}
+
+.stFileUploader label {
+    color: #374151 !important;
+    font-weight: 500 !important;
+}
+
+/* Success/Info/Error messages */
+.stSuccess {
+    background-color: #d1fae5 !important;
+    border: 1px solid #10b981 !important;
+    color: #065f46 !important;
+    border-radius: 0.5rem !important;
+    padding: 1rem !important;
+}
+
+.stInfo {
+    background-color: #dbeafe !important;
+    border: 1px solid #3b82f6 !important;
+    color: #1e40af !important;
+    border-radius: 0.5rem !important;
+    padding: 1rem !important;
+}
+
+.stError {
+    background-color: #fee2e2 !important;
+    border: 1px solid #ef4444 !important;
+    color: #991b1b !important;
+    border-radius: 0.5rem !important;
+    padding: 1rem !important;
+}
+
+/* Metrics styling */
+[data-testid="metric-container"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    padding: 1.5rem !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+    border: none !important;
+}
+
+[data-testid="metric-container"] > div {
+    color: white !important;
+}
+
+[data-testid="metric-container"] [data-testid="metric-value"] {
+    color: white !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+}
+
+[data-testid="metric-container"] [data-testid="metric-label"] {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500 !important;
+}
+
+/* Progress bars */
+.stProgress > div > div > div > div {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.stProgress > div > div {
+    background-color: #e2e8f0 !important;
+}
+
+/* Chat interface */
+[data-testid="stChatMessage"] {
+    padding: 1rem !important;
+    margin: 0.5rem 0 !important;
+    border-radius: 0.75rem !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+[data-testid="stChatMessage"][data-testid*="user"] {
+    background-color: #f1f5f9 !important;
+    margin-left: 2rem !important;
+    border-color: #cbd5e1 !important;
+}
+
+[data-testid="stChatMessage"][data-testid*="assistant"] {
+    background-color: #eff6ff !important;
+    margin-right: 2rem !important;
+    border-color: #bfdbfe !important;
+}
+
+/* Buttons */
+.stButton > button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 0.5rem !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2) !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.5rem !important;
+    padding: 1rem !important;
+    font-weight: 500 !important;
+    color: #374151 !important;
+}
+
+.streamlit-expanderContent {
+    border: 1px solid #e2e8f0 !important;
+    border-top: none !important;
+    border-radius: 0 0 0.5rem 0.5rem !important;
+    padding: 1rem !important;
+    background-color: #ffffff !important;
+}
+
+/* Audio player */
+audio {
+    width: 100% !important;
+    margin: 1rem 0 !important;
+    border-radius: 0.5rem !important;
+}
+
+/* Spinner */
+.stSpinner > div {
+    border-top-color: #667eea !important;
+}
+
+/* Feature cards on welcome screen */
+.stMarkdown div[style*="padding: 1rem"] {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.2s ease !important;
+}
+
+.stMarkdown div[style*="padding: 1rem"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Text colors */
+.stMarkdown, .stText {
+    color: #374151 !important;
+}
+
+.stMarkdown p {
+    color: #4b5563 !important;
+    line-height: 1.6 !important;
+}
+
+.stMarkdown ul li {
+    color: #4b5563 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.stMarkdown strong {
+    color: #1f2937 !important;
+    font-weight: 600 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .stTabs [data-baseweb="tab-list"] {
+        flex-wrap: wrap !important;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        flex: 1 !important;
+        min-width: 120px !important;
+    }
+    
+    .main .block-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.stMarkdown, [data-testid="metric-container"] {
+    animation: fadeIn 0.3s ease-out !important;
+}
+
+/* Hide Streamlit branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Processing message styling */
+.stAlert {
+    border-radius: 0.5rem !important;
+    border: none !important;
+    font-weight: 500 !important;
+}
+
+/* Ensure all text is readable */
+* {
+    color: inherit !important;
+}
+
+/* Force override any dark theme remnants */
+.stApp, .stApp *, .stApp div, .stApp section {
+    background-color: #ffffff !important;
+}
+
+/* Target specific Streamlit main content classes */
+.css-1d391kg, .css-18e3th9, .css-1lcbmhc, .css-1outpf7, .css-k1vhr4, .css-12oz5g7 {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+}
+
+/* Force main content wrapper */
+div[data-testid="stAppViewContainer"] {
+    background-color: #ffffff !important;
+}
+
+div[data-testid="stAppViewContainer"] > div {
+    background-color: #ffffff !important;
+}
+
+/* Override any remaining dark backgrounds */
+.css-1y4p8pa, .css-12w0qpk, .css-1rs6os, .css-17eq0hr {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+}
+
+section[data-testid="stSidebar"] * {
+    color: #374151 !important;
+}
+
+/* Nuclear option - force everything to light */
+* {
+    background-color: inherit !important;
+}
+
+.stApp * {
+    background-color: #ffffff !important;
+}
+
+/* Specifically target main content area */
+.main, .main *, [role="main"], [role="main"] * {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+}
