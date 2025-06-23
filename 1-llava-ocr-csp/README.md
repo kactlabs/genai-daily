@@ -1,7 +1,7 @@
 
 # Llava OCR App
 
-This project leverages Llava vision capabilities and Streamlit to create a 100% locally running computer vision app that can perform both OCR and extract structured text from the image.
+A powerful local OCR application built with Llava vision model and Streamlit. Extract and structure text from images with advanced computer vision capabilities, running entirely on your machine without external API dependencies.
 
 ## Installation and setup
 
@@ -9,9 +9,8 @@ This project leverages Llava vision capabilities and Streamlit to create a 100% 
    ```bash
    # setup ollama on linux 
    curl -fsSL https://ollama.com/install.sh | sh
-   # pull Llava-3 vision model
-   ollama run Llava:2b
 
+   # pull Llava-3 vision model
    ollama pull llava
    ```
 
