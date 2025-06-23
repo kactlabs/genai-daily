@@ -1,7 +1,7 @@
 
-# Gemma OCR App
+# Llava OCR App
 
-This project leverages Gemma vision capabilities and Streamlit to create a 100% locally running computer vision app that can perform both OCR and extract structured text from the image.
+This project leverages Llava vision capabilities and Streamlit to create a 100% locally running computer vision app that can perform both OCR and extract structured text from the image.
 
 ## Installation and setup
 
@@ -9,8 +9,8 @@ This project leverages Gemma vision capabilities and Streamlit to create a 100% 
    ```bash
    # setup ollama on linux 
    curl -fsSL https://ollama.com/install.sh | sh
-   # pull gemma-3 vision model
-   ollama run gemma:2b
+   # pull Llava-3 vision model
+   ollama run Llava:2b
 
    ollama pull llava
    ```
