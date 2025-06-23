@@ -18,16 +18,16 @@ This project leverages Llava vision capabilities and Streamlit to create a 100% 
 **Install Dependencies**:
    Ensure you have Python 3.11 or later installed.
    ```bash
-   pip install streamlit ollama pillow
+   pip install -r requirements.txt
    ```
 
+**Run**:
 ```
 streamlit run app.py
 ```
 
----
 
-
+**Sources**:
 ```
 https://llava-vl.github.io/
 https://www.microsoft.com/en-us/research/project/llava-large-language-and-vision-assistant/
