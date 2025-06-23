@@ -26,6 +26,9 @@ streamlit run app.py
 ```
 
 
+### Post:
+[https://articlevil.substack.com/p/llava-vision-an-open-source-gpt-4v](https://articlevil.substack.com/p/llava-vision-an-open-source-gpt-4v)
+
 **Sources**:
 ```
 https://llava-vl.github.io/
