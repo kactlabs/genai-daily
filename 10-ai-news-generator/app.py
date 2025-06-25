@@ -9,9 +9,9 @@ from crewai_tools import SerperDevTool
 load_dotenv()
 
 # Streamlit Page Setup
-st.set_page_config(page_title="🎥 YouTube Video Finder", page_icon="📺", layout="wide")
+st.set_page_config(page_title=" YouTube Video Finder", page_icon="📺", layout="wide")
 
-st.title("🔍 YouTube Video Finder")
+st.title(" YouTube Video Finder")
 st.markdown("Enter a query and get the top 3 YouTube videos using AI search agents!")
 
 # Sidebar Input
@@ -24,7 +24,7 @@ with st.sidebar:
     )
     search_button = st.button("Find Videos", type="primary", use_container_width=True)
 
-    with st.expander("ℹ️ How to use"):
+    with st.expander(" How to use"):
         st.markdown("""
         1. Type your search query in the box above  
         2. Click 'Find Videos'  
@@ -70,12 +70,12 @@ if search_button:
     if not query.strip():
         st.warning("Please enter a search query.")
     else:
-        with st.spinner("🔍 Searching YouTube..."):
+        with st.spinner("Searching YouTube..."):
             try:
                 result = find_youtube_videos(query)
 
                 # Show raw output (for debug)
-                st.markdown("### 📝 Raw Agent Output")
+                st.markdown("###  Raw Agent Output")
                 st.code(result.raw, language="text")
 
                 # Extract YouTube links using regex
@@ -83,9 +83,9 @@ if search_button:
                 urls = urls[:3]
 
                 if not urls:
-                    st.error("❌ No YouTube links found. Try a different query.")
+                    st.error("No YouTube links found. Try a different query.")
                 else:
-                    st.markdown("### 🎬 Top 3 YouTube Videos")
+                    st.markdown("### Top 3 YouTube Videos")
                     for i, url in enumerate(urls, 1):
                         st.markdown(f"**Video {i}:** [{url}]({url})")
                         st.video(url)
@@ -95,4 +95,4 @@ if search_button:
 
 # Footer
 st.markdown("---")
-st.markdown("Built with 💡 CrewAI, Streamlit, and Serper. Powered by LLMs.")
+st.markdown("Built with  CrewAI, Streamlit, and Serper. Powered by LLMs.")
