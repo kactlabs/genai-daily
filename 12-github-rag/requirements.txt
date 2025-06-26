@@ -1,0 +1,5 @@
+gitingest==0.1.5
+llama_index==0.12.44
+pandas==2.3.0
+python-dotenv==1.1.1
+streamlit==1.37.1
