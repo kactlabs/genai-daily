@@ -1,0 +1,7 @@
+Generate synthetic data from the folder located at "/home/jerin/tact/genai-daily/17-sdv-mcp/data"
+
+
+Evaluate the synthetic data that has been generated for the actual data folder located at "/home/jerin/tact/genai-daily/17-sdv-mcp/data"
+
+
+Please visualize the "amenities_fee" column in the "guests" table from the data located at "/home/jerin/tact/genai-daily/17-sdv-mcp/data" I would like to compare the distribution of synthetic data to that of real data for this specific column.

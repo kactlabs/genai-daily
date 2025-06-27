@@ -1,0 +1,11 @@
+hotel_id,city,state,rating,classification
+HID_004,Samanthachester,Pennsylvania,4.5,MOTEL
+HID_000,South Nicolefort,Arkansas,4.5,MOTEL
+HID_005,Port Danielport,Ohio,4.1,MOTEL
+HID_002,North Julian,Wyoming,4.0,MOTEL
+HID_009,Seanmouth,Alaska,4.0,MOTEL
+HID_001,New Ryanland,California,4.5,CHAIN
+HID_007,South Lisafurt,New York,4.7,CHAIN
+HID_008,North Colleenhaven,Delaware,4.5,RESORT
+HID_003,Port Timothy,Alaska,4.2,MOTEL
+HID_006,Port Ruthbury,Texas,,RESORT
