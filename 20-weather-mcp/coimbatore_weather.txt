@@ -1,0 +1,5 @@
+🌤️ Weather in Coimbatore:
+- Temperature: 23.66°C
+- Condition: overcast clouds
+- Humidity: 80%
+- Wind Speed: 5.49 m/s

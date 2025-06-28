@@ -1,0 +1,5 @@
+crewai==0.134.0
+crewai_tools==0.48.0
+litserve==0.2.12
+python-dotenv==1.1.1
+Requests==2.32.4

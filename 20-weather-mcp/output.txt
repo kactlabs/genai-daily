@@ -1,0 +1,5 @@
+🌤️ Weather in Canada:
+- Temperature: 31.77°C
+- Condition: clear sky
+- Humidity: 34%
+- Wind Speed: 5.61 m/s
