@@ -10,8 +10,8 @@ load_dotenv()
 
 # Set up LLM using Groq
 llm = LLM(
-    model="groq/llama3-70b-8192",  # ✅ Required format for LiteLLM to detect provider
-    api_key=os.getenv("GROQ_API_KEY")  # ✅ Top-level, NOT in config
+    model="groq/llama3-70b-8192",  
+    api_key=os.getenv("GROQ_API_KEY") 
 )
 
 # Initialize FastAPI app
