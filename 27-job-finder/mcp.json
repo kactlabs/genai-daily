@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "event_extractor_mcp": {
+    "job_finder_mcp": {
       "command": "/home/jerin/miniconda3/envs/py311/bin/uv",
       "args": [
         "--directory",

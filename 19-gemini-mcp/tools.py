@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from langchain_community.llms import GoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 
@@ -12,7 +12,7 @@ def ask_gemini(question: str) -> str:
         return "❌ GEMINI_API_KEY not found in .env"
 
     try:
-        llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=gemini_api_key)
+        llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=gemini_api_key)
 
         prompt = PromptTemplate(
             input_variables=["question"],

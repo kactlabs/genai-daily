@@ -1,6 +1,6 @@
 from mcp.server.fastmcp import FastMCP
 from tools import ask_gemini
-from langchain_community.llms import GoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 mcp = FastMCP("langchain_gemini_mcp")
 
