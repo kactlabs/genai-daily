@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "event_extractor_mcp": {
+      "command": "/home/jerin/miniconda3/envs/py311/bin/uv",
+      "args": [
+        "--directory",
+        ".",
+        "run",
+        "--with",
+        "mcp",
+        "server.py"
+      ]
+    }
+  }
+}
