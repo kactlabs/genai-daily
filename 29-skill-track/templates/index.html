@@ -1,100 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resume Feedback</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #eef2f7;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 50px auto;
-      background: #ffffff;
-      padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-      margin-bottom: 30px;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 10px;
-      color: #34495e;
-    }
-
-    input[type="file"] {
-      display: block;
-      margin-bottom: 20px;
-      padding: 10px;
-      border-radius: 8px;
-      background: #f8f8f8;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      background-color: #3498db;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    .feedback {
-      margin-top: 30px;
-    }
-
-    .feedback h2 {
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-
-    textarea {
-      width: 100%;
-      height: 250px;
-      padding: 15px;
-      font-size: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      resize: vertical;
-      background-color: #fefefe;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-    }
-  </style>
+    <title>Resume Review (AI)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            max-width: 700px;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        input[type="file"], button {
+            padding: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        #feedback {
+            background-color: #f8f8f8;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+            border: 1px solid #ddd;
+        }
+        #loading {
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Resume Feedback Generator</h1>
-    <form method="post" enctype="multipart/form-data">
-      <label for="file">Upload your resume (PDF):</label>
-      <input type="file" name="file" accept=".pdf" required>
-      <button type="submit">Generate Feedback</button>
+    <h2>Upload Your Resume (PDF)</h2>
+    <form id="upload-form">
+        <input type="file" name="file" accept=".pdf" required />
+        <br/>
+        <button type="submit">Get Feedback</button>
     </form>
 
-    {% if feedback %}
-    <div class="feedback">
-      <h2>Feedback</h2>
-      <textarea readonly>{{ feedback }}</textarea>
-    </div>
-    {% endif %}
-  </div>
+    <div id="loading"></div>
+    <div id="feedback"></div>
+
+    <script>
+        const form = document.getElementById("upload-form");
+        const feedbackBox = document.getElementById("feedback");
+        const loadingText = document.getElementById("loading");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            feedbackBox.textContent = "";
+            loadingText.textContent = "⏳ Generating feedback...";
+
+            const formData = new FormData();
+            const fileInput = form.querySelector('input[type="file"]');
+            formData.append("file", fileInput.files[0]);
+
+            try {
+                const response = await fetch("/", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    feedbackBox.textContent = "❌ Something went wrong.";
+                    loadingText.textContent = "";
+                    return;
+                }
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder("utf-8");
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    feedbackBox.textContent += decoder.decode(value);
+                }
+
+                loadingText.textContent = "";
+
+            } catch (err) {
+                feedbackBox.textContent = `❌ Error: ${err.message}`;
+                loadingText.textContent = "";
+            }
+        });
+    </script>
 </body>
 </html>
