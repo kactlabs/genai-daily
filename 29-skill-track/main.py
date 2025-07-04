@@ -9,6 +9,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 import fitz  # PyMuPDF
 import os
 import shutil
+import re
+
+
 
 load_dotenv()
 
@@ -24,19 +27,21 @@ llm = ChatGoogleGenerativeAI(
 
 # Prompt definition
 prompt = PromptTemplate.from_template("""
-You are an expert resume reviewer. Review the resume text below and return a **brief** evaluation.
+You are an experienced technical recruiter reviewing a candidate's resume.
+
+Analyze the resume provided below and return a structured evaluation.
 
 Resume:
 {resume_text}
 
 Instructions:
-- Provide feedback in **3 sections**: **Strengths**, **Weaknesses**, and **Areas to Improve**
-- Use **clear, concise language** and avoid jargon
-- Each section should have **no more than 3 concise points**
-- No asterisks (*), no markdown bullets
-- Bold the section titles (e.g., Strengths, Weaknesses)
+- Return 3 sections: **Strengths**, **Weaknesses**, and **Areas to Improve**
+- Under each section, give 2–3 concise bullet points
+- Use hyphens (`-`) or bullets (`•`) for each point. Do NOT use asterisks (`*`)
+- Bold only section titles like **Strengths**, not the bullet points
+- Avoid markdown formatting — just return clean, readable plain text
 
-Return only readable plain text, well formatted.
+Return only the final result. No JSON, no code formatting.
 """)
 
 # Chain setup
@@ -63,7 +68,7 @@ async def upload_resume(request: Request, file: UploadFile):
             shutil.copyfileobj(file.file, buffer)
 
         result = extract_text_from_pdf(file_path)
-        resume_text = result.replace("*","")
+        resume_text = re.sub(r"[＊∗✱*]", "", result)
         os.remove(file_path)
 
         return StreamingResponse(stream_feedback(resume_text), media_type="text/plain")

@@ -1,88 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Resume Review (AI)</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 2rem;
-            max-width: 700px;
-            margin: auto;
-        }
-        h2 {
-            color: #333;
-        }
-        input[type="file"], button {
-            padding: 0.5rem;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-        #feedback {
-            background-color: #f8f8f8;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-top: 1rem;
-            white-space: pre-wrap;
-            border: 1px solid #ddd;
-        }
-        #loading {
-            color: #666;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Resume Feedback AI</title>
+  <style>
+    body {
+      background: #f4f6f9;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      margin: 2rem;
+      border-radius: 10px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      color: #2d3748;
+      margin-bottom: 1rem;
+    }
+
+    input[type="file"] {
+      border: 1px solid #ccc;
+      padding: 0.6rem;
+      width: 100%;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 0.7rem 1.5rem;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    #loading {
+      margin-top: 1rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    #feedback {
+      background: #f9fafb;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      white-space: pre-wrap;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
-    <h2>Upload Your Resume (PDF)</h2>
+  <div class="container">
+    <h2>📄 Upload Your Resume (PDF)</h2>
+
     <form id="upload-form">
-        <input type="file" name="file" accept=".pdf" required />
-        <br/>
-        <button type="submit">Get Feedback</button>
+      <input type="file" name="file" accept=".pdf" required />
+      <button type="submit"> Get AI Feedback</button>
     </form>
 
     <div id="loading"></div>
     <div id="feedback"></div>
 
-    <script>
-        const form = document.getElementById("upload-form");
-        const feedbackBox = document.getElementById("feedback");
-        const loadingText = document.getElementById("loading");
+    <div class="footer">
+      Powered by Gemini · Built with FastAPI & LangChain
+    </div>
+  </div>
 
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            feedbackBox.textContent = "";
-            loadingText.textContent = "⏳ Generating feedback...";
+  <script>
+    const form = document.getElementById("upload-form");
+    const feedbackBox = document.getElementById("feedback");
+    const loadingText = document.getElementById("loading");
 
-            const formData = new FormData();
-            const fileInput = form.querySelector('input[type="file"]');
-            formData.append("file", fileInput.files[0]);
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      feedbackBox.textContent = "";
+      loadingText.textContent = "⏳ Generating feedback...";
 
-            try {
-                const response = await fetch("/", {
-                    method: "POST",
-                    body: formData,
-                });
+      const formData = new FormData();
+      const fileInput = form.querySelector('input[type="file"]');
+      formData.append("file", fileInput.files[0]);
 
-                if (!response.ok) {
-                    feedbackBox.textContent = "❌ Something went wrong.";
-                    loadingText.textContent = "";
-                    return;
-                }
-
-                const reader = response.body.getReader();
-                const decoder = new TextDecoder("utf-8");
-
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-                    feedbackBox.textContent += decoder.decode(value);
-                }
-
-                loadingText.textContent = "";
-
-            } catch (err) {
-                feedbackBox.textContent = `❌ Error: ${err.message}`;
-                loadingText.textContent = "";
-            }
+      try {
+        const response = await fetch("/", {
+          method: "POST",
+          body: formData,
         });
-    </script>
+
+        if (!response.ok) {
+          feedbackBox.textContent = "❌ Something went wrong.";
+          loadingText.textContent = "";
+          return;
+        }
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          feedbackBox.textContent += decoder.decode(value);
+        }
+
+        loadingText.textContent = "";
+
+      } catch (err) {
+        feedbackBox.textContent = `❌ Error: ${err.message}`;
+        loadingText.textContent = "";
+      }
+    });
+  </script>
 </body>
 </html>
+
+
