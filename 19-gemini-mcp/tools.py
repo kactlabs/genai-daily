@@ -9,7 +9,7 @@ load_dotenv()
 def ask_gemini(question: str) -> str:
     gemini_api_key = os.getenv("GEMINI_API_KEY")
     if not gemini_api_key:
-        return "❌ GEMINI_API_KEY not found in .env"
+        return "GEMINI_API_KEY not found in .env"
 
     try:
         llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=gemini_api_key)
@@ -23,4 +23,4 @@ def ask_gemini(question: str) -> str:
         response = chain.run(question)
         return response
     except Exception as e:
-        return f"❌ Error: {e}"
+        return f"Error: {e}"
