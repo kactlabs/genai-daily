@@ -1,0 +1,117 @@
+{
+  "classic_movies_1950_1980": [
+    {
+      "title": "The President's Plane Is Missing",
+      "year": 1973,
+      "genre": "Thriller",
+      "description": "A political thriller about the mysterious disappearance of Air Force One with the President aboard.",
+      "cast_crew": "Buddy Ebsen, Peter Graves, Arthur Kennedy",
+      "director": "Daryl Duke",
+      "likely_youtube_available": true,
+      "keywords": ["political thriller", "conspiracy", "government", "mystery"]
+    },
+    {
+      "title": "Night of the Living Dead",
+      "year": 1968,
+      "genre": "Horror",
+      "description": "A group of people trapped in a rural farmhouse fight for survival against hordes of cannibalistic zombies.",
+      "cast_crew": "Duane Jones, Judith O'Dea, Karl Hardman",
+      "director": "George A. Romero",
+      "likely_youtube_available": true,
+      "keywords": ["zombie", "horror", "survival", "public domain"]
+    },
+    {
+      "title": "Carnival of Souls",
+      "year": 1962,
+      "genre": "Horror",
+      "description": "After a car accident, a woman finds herself drawn to an abandoned carnival pavilion.",
+      "cast_crew": "Candace Hilligoss, Frances Feist, Sidney Berger",
+      "director": "Herk Harvey",
+      "likely_youtube_available": true,
+      "keywords": ["psychological horror", "supernatural", "independent film"]
+    },
+    {
+      "title": "The Little Shop of Horrors",
+      "year": 1960,
+      "genre": "Comedy",
+      "description": "A clumsy young man nurtures a plant that feeds on human blood.",
+      "cast_crew": "Jonathan Haze, Jackie Joseph, Mel Welles",
+      "director": "Roger Corman",
+      "likely_youtube_available": true,
+      "keywords": ["dark comedy", "B-movie", "cult classic"]
+    },
+    {
+      "title": "Plan 9 from Outer Space",
+      "year": 1959,
+      "genre": "Science Fiction",
+      "description": "Aliens resurrect dead humans as zombies and vampires to stop humanity from creating a doomsday weapon.",
+      "cast_crew": "Gregory Walcott, Tom Keene, Mona McKinnon",
+      "director": "Ed Wood",
+      "likely_youtube_available": true,
+      "keywords": ["B-movie", "cult classic", "so bad it's good"]
+    },
+    {
+      "title": "Detour",
+      "year": 1945,
+      "genre": "Film Noir",
+      "description": "A musician hitchhikes to Hollywood and gets caught up in a web of murder and deceit.",
+      "cast_crew": "Tom Neal, Ann Savage, Claudia Drake",
+      "director": "Edgar G. Ulmer",
+      "likely_youtube_available": true,
+      "keywords": ["film noir", "public domain", "low budget classic"]
+    },
+    {
+      "title": "The Cabinet of Dr. Caligari",
+      "year": 1920,
+      "genre": "Horror",
+      "description": "A hypnotist uses a somnambulist to commit murders in a German town.",
+      "cast_crew": "Werner Krauss, Conrad Veidt, Friedrich Feher",
+      "director": "Robert Wiene",
+      "likely_youtube_available": true,
+      "keywords": ["German expressionism", "silent film", "public domain"]
+    },
+    {
+      "title": "Reefer Madness",
+      "year": 1936,
+      "genre": "Drama",
+      "description": "A propaganda film about the supposed dangers of marijuana use.",
+      "cast_crew": "Dorothy Short, Kenneth Craig, Lillian Miles",
+      "director": "Louis J. Gasnier",
+      "likely_youtube_available": true,
+      "keywords": ["propaganda", "cult classic", "unintentional comedy"]
+    },
+    {
+      "title": "The Terror",
+      "year": 1963,
+      "genre": "Horror",
+      "description": "A French soldier encounters a mysterious woman and becomes involved with a baron's dark secrets.",
+      "cast_crew": "Boris Karloff, Jack Nicholson, Sandra Knight",
+      "director": "Roger Corman",
+      "likely_youtube_available": true,
+      "keywords": ["gothic horror", "Roger Corman", "early Jack Nicholson"]
+    },
+    {
+      "title": "The Last Man on Earth",
+      "year": 1964,
+      "genre": "Science Fiction",
+      "description": "The sole survivor of a plague that has turned humanity into vampires struggles to survive.",
+      "cast_crew": "Vincent Price, Franca Bettoia, Emma Danieli",
+      "director": "Ubaldo Ragona",
+      "likely_youtube_available": true,
+      "keywords": ["post-apocalyptic", "Vincent Price", "vampire"]
+    }
+  ],
+  "metadata": {
+    "description": "Sample classic movies from 1950-1980 that are likely available on YouTube",
+    "total_count": 10,
+    "genres_covered": [
+      "Thriller",
+      "Horror",
+      "Comedy",
+      "Science Fiction",
+      "Film Noir",
+      "Drama"
+    ],
+    "notes": "These movies are either in public domain or commonly available on YouTube"
+  }
+}
