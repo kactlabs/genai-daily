@@ -8,10 +8,8 @@ from langchain_core.runnables import Runnable
 from langchain_google_genai import ChatGoogleGenerativeAI
 import fitz  # PyMuPDF
 import os
-import shutil
 import re
-
-
+from io import BytesIO
 
 load_dotenv()
 
@@ -47,8 +45,8 @@ Return only the final result. No JSON, no code formatting.
 # Chain setup
 chain: Runnable = prompt | llm | StrOutputParser()
 
-def extract_text_from_pdf(pdf_path: str) -> str:
-    doc = fitz.open(pdf_path)
+def extract_text_from_pdf(file_stream) -> str:
+    doc = fitz.open(stream=file_stream, filetype="pdf")
     text = "\n".join(page.get_text() for page in doc)
     doc.close()
     return text.strip()
@@ -63,13 +61,9 @@ async def home(request: Request):
 @app.post("/", response_class=StreamingResponse)
 async def upload_resume(request: Request, file: UploadFile):
     try:
-        file_path = f"temp_{file.filename}"
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
-
-        result = extract_text_from_pdf(file_path)
-        resume_text = re.sub(r"[＊∗✱*]", "", result)
-        os.remove(file_path)
+        file_bytes = await file.read()
+        resume_text = extract_text_from_pdf(BytesIO(file_bytes))
+        resume_text = re.sub(r"[＊∗✱*]", "", resume_text)
 
         return StreamingResponse(stream_feedback(resume_text), media_type="text/plain")
 
