@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV Chat Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .chat-box {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+        }
+
+        .user {
+            font-weight: bold;
+            color: #1a73e8;
+        }
+
+        .bot {
+            color: #333;
+            margin-left: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 16px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1a242f;
+        }
+
+        .upload-section {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        pre {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>CSV Chat Analyzer</h2>
+
+        <div class="upload-section">
+            {% if filename %}
+                <p><strong>Uploaded File:</strong> {{ filename }}</p>
+            {% else %}
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" required>
+                    <button type="submit">Upload CSV</button>
+                </form>
+            {% endif %}
+        </div>
+
+        {% if filename %}
+        <div class="chat-box">
+            {% for message in chat_history %}
+                <div class="message">
+                    <span class="user">You:</span> {{ message.user }}<br>
+                    <span class="bot">Bot:</span> {{ message.bot }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <form action="/ask" method="post">
+            <input type="text" name="question" placeholder="Ask a question..." required>
+            <button type="submit">Ask</button>
+        </form>
+        {% endif %}
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
