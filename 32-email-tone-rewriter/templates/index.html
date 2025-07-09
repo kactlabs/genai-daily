@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Tone Rewriter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 1rem;
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #303f9f;
+        }
+
+        #output {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            white-space: pre-wrap;
+            border-left: 4px solid #3f51b5;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            form {
+                padding: 1rem;
+            }
+
+            #output {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Email Tone Rewriter (Groq + FastAPI)</h2>
+    <form method="post">
+        <textarea name="email" rows="8" placeholder="Paste your email here..." required></textarea>
+        <button type="submit">✨ Rewrite Email</button>
+    </form>
+
+    {% if result %}
+    <div id="output">
+        {{ result }}
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Customer Support Reply Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            color: #444;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            font-size: 15px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .refresh-btn {
+            background-color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .refresh-btn:hover {
+            background-color: #495057;
+        }
+
+        .output {
+            background: #e9f7ef;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 8px;
+        }
+
+        .output h3 {
+            margin-top: 0;
+            color: #28a745;
+        }
+
+        .output p {
+            margin: 10px 0 0;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h2>AI Customer Support Reply Generator</h2>
+
+    <form method="post" action="/">
+        <label for="message">Customer Message:</label>
+        <textarea id="message" name="message" rows="6" required>{{ message or '' }}</textarea>
+
+        <button type="submit">Generate Reply</button>
+
+        <!-- ✅ Fixed Refresh Button -->
+        <button type="button" class="refresh-btn"
+                onclick="window.location.href='/'">
+            Refresh
+        </button>
+    </form>
+
+    {% if response %}
+    <div class="output">
+        <h3>AI-Generated Reply:</h3>
+        <p>{{ response }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
