@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MongoDB Query Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            color: #34495e;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            font-size: 15px;
+            background-color: #fafafa;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button[type="submit"] {
+            background-color: #3498db;
+            color: white;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        button[type="button"] {
+            margin-top: 10px;
+            background-color: #95a5a6;
+            color: white;
+            width: 100%;
+        }
+
+        button[type="button"]:hover {
+            background-color: #7f8c8d;
+        }
+
+        .output {
+            background: #e8f6f3;
+            border-left: 6px solid #1abc9c;
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 10px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .output h3 {
+            margin-top: 0;
+            color: #1abc9c;
+        }
+
+        .output pre {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h2>🧠 MongoDB Query Generator</h2>
+
+    <form method="post">
+        <label for="schema">📦 MongoDB Collection Schema:</label>
+        <textarea id="schema" name="schema" rows="6" required>{{ schema or '' }}</textarea>
+
+        <label for="question">❓ What do you want to ask?</label>
+        <input type="text" id="question" name="question" required value="{{ question or '' }}"/>
+
+        <button type="submit">🚀 Generate Query</button>
+        <button type="button" onclick="window.location.href='/'">🔄 Refresh Page</button>
+    </form>
+
+    {% if response %}
+    <div class="output">
+        <h3>🧾 Generated MongoDB Query:</h3>
+        <pre>{{ response }}</pre>
+    </div>
+    {% endif %}
+</body>
+</html>
